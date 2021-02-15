@@ -1,5 +1,18 @@
 
 
+#' Title
+#'
+#' @param X  numeric matrix
+#' @param Y  numeric vector
+#'
+#' @return double
+#' @export
+#'
+#' @examples
+#' X<-matrix(rnorm(15),3,5)
+#' Y<-c(2, 4.2, 5.8)
+#' naive(X,Y)
+
 naive <- function(X, Y) {
   W = as.data.frame(X)*Y
   mean_squared_W <- colMeans(W^2)              #calculate first element of beta_square_hat
