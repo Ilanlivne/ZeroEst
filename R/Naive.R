@@ -1,12 +1,13 @@
 
 
-#' Title
+#' calculate the Naive estimator
 #'
 #' @param X  numeric matrix
 #' @param Y  numeric vector
 #'
 #' @return double
 #' @export
+#' @import stats
 #'
 #' @examples
 #' X<-matrix(rnorm(15),3,5)
@@ -21,5 +22,7 @@ naive <- function(X, Y) {
   return(sum(beta_square_hat))
 
 }
+
+
 
 
