@@ -30,7 +30,9 @@ func<-function(X,Y,Z) {
 #' @import stats
 #' @importFrom magrittr %>%
 #' @examples
-
+#' X<-matrix(rnorm(15),3,5)
+#' Y<-c(2, 4.2, 5.8)
+#' selection_algoritm(X,Y)
 selection_algoritm <- function(X,Y){
   p=ncol(X)
   # step 1: calculate \hat\beta_j^2 for j=1,...,p:
@@ -41,7 +43,7 @@ selection_algoritm <- function(X,Y){
   # step2:  calculate the differences lamda_j for j=2,...,p:
 
   dt <- data.frame(  j = 1:p,  beta_square_hat   ) %>% dplyr::arrange(beta_square_hat) %>%
-    mutate( index = 1:n(),  lag_1 = dplyr::lag(beta_square_hat),
+    dplyr::mutate( index = 1:dplyr::n(),  lag_1 = dplyr::lag(beta_square_hat),
             diff = beta_square_hat - lag_1
     ) %>% dplyr::select(-lag_1) %>% dplyr::filter(diff != "NA")
   #step 3: Select the covariates of B_gamma.
@@ -51,7 +53,7 @@ selection_algoritm <- function(X,Y){
   if (p-index_star<2) {
     index_star = index_star  %>% unlist()-1
   }
-  dt<- dt %>% mutate(pred =if_else(index >= index_star,"big","small"))
+  dt<- dt %>% dplyr::mutate(pred =dplyr::if_else(index >= index_star,"big","small"))
   return(dt[which(dt$pred=='big'),1])
 }
 
