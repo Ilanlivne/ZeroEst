@@ -3,5 +3,6 @@
 export(func)
 export(naive)
 export(proposed_estimator)
+export(selection_algoritm)
 import(stats)
 importFrom(magrittr,"%>%")

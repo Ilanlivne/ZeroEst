@@ -4,14 +4,14 @@
 \alias{proposed_estimator}
 \title{proposed estimator}
 \usage{
-proposed_estimator(X, Y, coef_vec)
+proposed_estimator(X, Y, coef_vec = NULL)
 }
 \arguments{
 \item{X}{matrix}
 
 \item{Y}{vector}
 
-\item{coef_vecvector}{a vector}
+\item{coef_vec}{a vector}
 }
 \value{
 

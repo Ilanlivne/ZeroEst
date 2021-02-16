@@ -20,11 +20,51 @@ func<-function(X,Y,Z) {
 
 
 
+#' Selection algorithm
+#'
+#' @param X matrix
+#' @param Y vector
+#'
+#' @return
+#' @export
+#' @import stats
+#' @importFrom magrittr %>%
+#' @examples
+
+selection_algoritm <- function(X,Y){
+  p=ncol(X)
+  # step 1: calculate \hat\beta_j^2 for j=1,...,p:
+  W_3 = as.data.frame(X)*Y
+  mean_squared_W<- colMeans(W_3^2)  #calculate first element of beta_square_hat
+  var_W<-sapply(W_3,var) # #calculate the second element of beta
+  beta_square_hat<- mean_squared_W - var_W # calculate vector of beta2_hat
+  # step2:  calculate the differences lamda_j for j=2,...,p:
+
+  dt <- data.frame(  j = 1:p,  beta_square_hat   ) %>% dplyr::arrange(beta_square_hat) %>%
+    mutate( index = 1:n(),  lag_1 = dplyr::lag(beta_square_hat),
+            diff = beta_square_hat - lag_1
+    ) %>% dplyr::select(-lag_1) %>% dplyr::filter(diff != "NA")
+  #step 3: Select the covariates of B_gamma.
+  #calculate  j_star:
+  index_star = dt %>%  dplyr::mutate(max_diff = max(diff, na.rm = T)) %>%
+    dplyr::filter(diff == max_diff) %>% dplyr::select(index) %>% unlist()
+  if (p-index_star<2) {
+    index_star = index_star  %>% unlist()-1
+  }
+  dt<- dt %>% mutate(pred =if_else(index >= index_star,"big","small"))
+  return(dt[which(dt$pred=='big'),1])
+}
+
+
+
+
+
+
 #' proposed estimator
 #'
 #' @param X  matrix
 #' @param Y vector
-#' @param coef_vecvector a vector
+#' @param coef_vec a vector
 #'
 #' @return
 #' @export
@@ -34,7 +74,10 @@ func<-function(X,Y,Z) {
 #' Y <- c(2, 4.2, 5.8)
 #' coef_vec <- c(1,2,3)
 #' proposed_estimator(X,Y,coef_vec)
-proposed_estimator <- function(X,Y,coef_vec) {
+proposed_estimator <- function(X,Y,coef_vec = NULL) {
+ if (is.null(coef_vec)) {
+   coef_vec <- selection_algoritm(X,Y)
+ }
   p = ncol(X)
   W = as.data.frame(X)*Y
   df <- data.frame(j_1 = rep(1:p,each=p), j_2=rep(1:p,times=p))%>%
