@@ -20,9 +20,11 @@ func<-function(X,Y,Z) {
 
 
 
+
+
 #' Selection algorithm
 #'
-#' @param X matrix
+#' @param X  matrix
 #' @param Y vector
 #'
 #' @return
@@ -41,7 +43,6 @@ selection_algoritm <- function(X,Y){
   var_W<-sapply(W_3,var) # #calculate the second element of beta
   beta_square_hat<- mean_squared_W - var_W # calculate vector of beta2_hat
   # step2:  calculate the differences lamda_j for j=2,...,p:
-
   dt <- data.frame(  j = 1:p,  beta_square_hat   ) %>% dplyr::arrange(beta_square_hat) %>%
     dplyr::mutate( index = 1:dplyr::n(),  lag_1 = dplyr::lag(beta_square_hat),
             diff = beta_square_hat - lag_1
