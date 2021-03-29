@@ -7,7 +7,7 @@
 #' @param Y vector length n
 #' @param Z vector length n
 #'
-#' @return
+#' @return double
 #' @export
 #' @examples
 #'  func(seq(1,10,length = 50), seq(1,20,length = 50),seq(1,30,length = 50))
@@ -27,7 +27,7 @@ func<-function(X,Y,Z) {
 #' @param X  matrix
 #' @param Y vector
 #'
-#' @return
+#' @return double
 #' @export
 #' @import stats
 #' @importFrom magrittr %>%
@@ -36,6 +36,7 @@ func<-function(X,Y,Z) {
 #' Y<-c(2, 4.2, 5.8)
 #' selection_algoritm(X,Y)
 selection_algoritm <- function(X,Y){
+  max_diff <- index <- lag_1 <- NULL
   p=ncol(X)
   # step 1: calculate \hat\beta_j^2 for j=1,...,p:
   W_3 = as.data.frame(X)*Y
@@ -69,7 +70,7 @@ selection_algoritm <- function(X,Y){
 #' @param Y vector
 #' @param coef_vec a vector
 #'
-#' @return
+#' @return double
 #' @export
 #' @importFrom magrittr %>%
 #' @examples
@@ -78,6 +79,7 @@ selection_algoritm <- function(X,Y){
 #' coef_vec <- c(1,2,3)
 #' proposed_estimator(X,Y,coef_vec)
 proposed_estimator <- function(X,Y,coef_vec = NULL) {
+  j_1 <- j_2 <- lag_1 <-  NULL
  if (is.null(coef_vec)) {
    coef_vec <- selection_algoritm(X,Y)
  }

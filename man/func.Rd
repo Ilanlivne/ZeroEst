@@ -14,7 +14,7 @@ func(X, Y, Z)
 \item{Z}{vector length n}
 }
 \value{
-
+double
 }
 \description{
 triple mean

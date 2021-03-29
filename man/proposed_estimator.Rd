@@ -14,7 +14,7 @@ proposed_estimator(X, Y, coef_vec = NULL)
 \item{coef_vec}{a vector}
 }
 \value{
-
+double
 }
 \description{
 proposed estimator

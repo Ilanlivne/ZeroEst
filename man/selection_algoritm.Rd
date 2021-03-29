@@ -12,7 +12,7 @@ selection_algoritm(X, Y)
 \item{Y}{vector}
 }
 \value{
-
+double
 }
 \description{
 Selection algorithm
