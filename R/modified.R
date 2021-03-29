@@ -8,7 +8,7 @@
 #' @param Y vector
 #' @param coef_vec a vector
 #'
-#' @return
+#' @return double
 #' @export
 #' @importFrom magrittr %>%
 #' @examples
@@ -17,6 +17,7 @@
 #' coef_vec <- c(1,2,3)
 #' proposed_estimator(X,Y,coef_vec)
 modified_estimator  <- function(X,Y,coef_vec = NULL) {
+  j_1 <- j_2 <- NULL
   p = ncol(X)
   n = nrow(X)
   smp_size <- floor(0.5 * n)
