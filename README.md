@@ -7,7 +7,7 @@
 <!-- badges: end -->
 
 The goal of ZeroEst is to provide set of functions to estimate the noise
-level in a semi-supervised high dimensional regression model.
+level in a semi-supervised high dimensional regression model. See details in https://arxiv.org/abs/2102.07203
 
 ## Installation
 
