@@ -36,9 +36,9 @@ sigma2<- 1
 X <- matrix(rnorm(n*p) ,nrow = n, ncol = p)
 Y <- X %*% beta_range + rnorm(n, mean=0, sd=sqrt(sigma2))  # basic model
 naive(X,Y)
-#> [1] 491.8071
+#> [1] 245.2566
 #> 270.4212
 proposed_estimator(X,Y)
-#> [1] 58.16238
+#> [1] 15.33465
 #> 90.71639
 ```
