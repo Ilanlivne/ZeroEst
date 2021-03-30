@@ -12,6 +12,9 @@ RoxygenNote: 7.1.1
 Imports: 
     stats,
     magrittr,
-    dplyr
+    dplyr,
+    Rcpp
 URL: https://github.com/Ilanlivne/ZeroEst
 BugReports: https://github.com/Ilanlivne/ZeroEst/issues
+LinkingTo: 
+    Rcpp
