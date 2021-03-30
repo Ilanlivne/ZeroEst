@@ -11,12 +11,12 @@
 #' @export
 #' @examples
 #'  func(seq(1,10,length = 50), seq(1,20,length = 50),seq(1,30,length = 50))
-func<-function(X,Y,Z) {
-  n=length(X)
-  A=X %o% Y %o% Z
-  (sum(A)-sum(apply(A, 1, diag))-sum(apply(A, 2, diag))-sum(apply(A, 3, diag))+2*sum(A[ cbind(1:n,1:n,1:n) ]))/(n*(n-1)*(n-2))
-}
 
+
+#' @useDynLib ZeroEst
+#' @importFrom Rcpp sourceCpp
+NULL
+#> NULL
 
 
 
