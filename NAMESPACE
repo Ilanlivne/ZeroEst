@@ -3,6 +3,7 @@
 export()
 export(modified_estimator)
 export(naive)
+export(optimal_modified_coeff)
 export(proposed_estimator)
 export(selection_algoritm)
 import(stats)
