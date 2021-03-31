@@ -65,6 +65,6 @@ modified_estimator <- function(X,Y,coef_vec = NULL) {
   for (k in 1:K) {
     phi[k] <-  optimal_modified_coeff(X,Y,coef_vec)
   }
-  return(naive(X,Y) - 2*sum(phi)/K)
+  return(ZeroEst::naive(X,Y) - 2*sum(phi)/K)
 
 }

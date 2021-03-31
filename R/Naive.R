@@ -7,7 +7,7 @@
 #'
 #' @return double
 #' @export
-#' @import stats
+
 #'
 #' @examples
 #' X<-matrix(rnorm(15),3,5)

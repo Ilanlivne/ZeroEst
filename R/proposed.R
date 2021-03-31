@@ -26,7 +26,6 @@ NULL
 #'
 #' @return double
 #' @export
-#' @import stats
 #' @import tidyr
 #' @import dplyr
 #' @importFrom magrittr %>%
@@ -93,7 +92,7 @@ proposed_estimator <- function(X,Y,coef_vec = NULL) {
                                func(W[,j_1],W[,j_2],X[,j_1]*X[,j_2])
     )  )
   T_proposed_estimator <- sum(df$psi_hat)
-  return(naive(X,Y) - 2 * T_proposed_estimator)
+  return(ZeroEst::naive(X,Y) - 2 * T_proposed_estimator)
 }
 
 
