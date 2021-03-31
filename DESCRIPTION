@@ -13,7 +13,8 @@ Imports:
     stats,
     magrittr,
     dplyr,
-    Rcpp
+    Rcpp,
+    tidyr
 URL: https://github.com/Ilanlivne/ZeroEst
 BugReports: https://github.com/Ilanlivne/ZeroEst/issues
 LinkingTo: 
