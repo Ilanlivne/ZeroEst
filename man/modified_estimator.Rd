@@ -2,7 +2,7 @@
 % Please edit documentation in R/modified.R
 \name{modified_estimator}
 \alias{modified_estimator}
-\title{proposed estimator}
+\title{Modified estimator}
 \usage{
 modified_estimator(X, Y, coef_vec = NULL)
 }
@@ -17,11 +17,11 @@ modified_estimator(X, Y, coef_vec = NULL)
 double
 }
 \description{
-proposed estimator
+Modified estimator
 }
 \examples{
 X <- matrix(rnorm(15),3,5)
 Y <- c(2, 4.2, 5.8)
 coef_vec <- c(1,2,3)
-proposed_estimator(X,Y,coef_vec)
+modified_estimator(X,Y,coef_vec)
 }
