@@ -27,6 +27,8 @@ NULL
 #' @return double
 #' @export
 #' @import stats
+#' @import tidyr
+#' @import dplyr
 #' @importFrom magrittr %>%
 #' @examples
 #' X<-matrix(rnorm(15),3,5)
@@ -69,6 +71,8 @@ selection_algoritm <- function(X,Y){
 #'
 #' @return double
 #' @export
+#' @import tidyr
+#' @import dplyr
 #' @importFrom magrittr %>%
 #' @examples
 #' X <- matrix(rnorm(15),3,5)

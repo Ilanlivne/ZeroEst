@@ -10,6 +10,8 @@
 #'
 #' @return double
 #' @export
+#' @import tidyr
+#' @import dplyr
 #' @importFrom magrittr %>%
 optimal_modified_coeff  <- function(X,Y,coef_vec = NULL) {
   j_1 <- j_2 <- NULL
@@ -48,6 +50,8 @@ optimal_modified_coeff  <- function(X,Y,coef_vec = NULL) {
 #'
 #' @return double
 #' @export
+#' @import tidyr
+#' @import dplyr
 #' @importFrom magrittr %>%
 #' @examples
 #' X <- matrix(rnorm(15),3,5)
