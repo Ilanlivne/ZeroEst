@@ -1,6 +1,3 @@
-
-
-
 #' triple mean
 #'
 #' @param X vector length n
@@ -91,5 +88,8 @@ proposed_estimator <- function(X,Y,coef_vec = NULL) {
     dplyr::mutate( psi_hat =  ifelse (j_1 == j_2, func(W[,j_1],W[,j_2], X[,j_1]*X[,j_2]-1),
                                func(W[,j_1],W[,j_2],X[,j_1]*X[,j_2])
     )  )
-  return(sum(df$psi_hat))
+  T_proposed_estimator <- sum(df$psi_hat)
+  return(naive(X,Y) - 2 * T_proposed_estimator)
 }
+
+
