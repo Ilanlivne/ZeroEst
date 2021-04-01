@@ -3,7 +3,7 @@
 
 
 #' Optimal modified coeffs
-#'
+#' @keywords internal
 #' @param X  matrix
 #' @param Y vector
 #' @param coef_vec a vector

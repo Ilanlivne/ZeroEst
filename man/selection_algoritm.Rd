@@ -22,3 +22,4 @@ X<-matrix(rnorm(15),3,5)
 Y<-c(2, 4.2, 5.8)
 selection_algoritm(X,Y)
 }
+\keyword{internal}

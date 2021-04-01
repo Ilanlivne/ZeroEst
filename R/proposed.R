@@ -20,7 +20,7 @@ NULL
 
 
 #' Selection algorithm
-#'
+#' @keywords internal
 #' @param X  matrix
 #' @param Y vector
 #'
