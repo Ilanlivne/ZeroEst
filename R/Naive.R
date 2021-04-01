@@ -1,6 +1,6 @@
 
 
-#' calculate the Naive estimator
+#' calculates the Naive estimator
 #'
 #' @param X  numeric matrix
 #' @param Y  numeric vector
